@@ -38,6 +38,9 @@
           },
           "configurations": {
             "production": {
+              "allowedCommonJsDependencies": [
+                "ng-sub"
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -50,7 +53,14 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "sourceMap": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,

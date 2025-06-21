@@ -1,0 +1,40 @@
+<app-layout (onSchool)="onSchool($event)">
+  <div class="" *ngIf="school">
+    <div class="h-[800px] w-full relative bg-no-repeat bg-center bg-cover" [bgImg]="bgImg">
+      <div class="h-full w-full bg-black/70 dark:bg-black/90">
+        <div class="layout-container h-full flex justify-center items-center">
+          <div
+            class="py-10 text-white w-full flex flex-col md:flex-row md:space-x-3 space-y-12 md:space-y-0 items-center justify-center">
+            <div class="w-full">
+              <h1 class="text-[50px] font-bold line-clamp-2">
+                {{school.motto}}
+              </h1>
+              <div class="mt-5 text-xl">
+                {{school.vision}}
+              </div>
+
+              <div class="flex justify-center items-center space-x-3 pt-10">
+                <button routerLink="/contact"
+                  class="py-3 px-7 rounded-sm bg-secondary hover:bg-secondary-thick text-white">
+                  Contact us
+                </button>
+
+                <a [href]="env.parentOrigin+'/auth/login?s='+school.subdomain"
+                  class="py-3 px-7 rounded-sm bg-primary hover:bg-primary-thick text-white">
+                  School portal
+                </a>
+              </div>
+            </div>
+
+            <div class="w-full">
+              <div
+                class="w-full md:w-[90%] mx-auto bg-cover bg-center bg-no-repeat overflow-hidden h-[350px] lg:h-[500px] transition-all duration-[5s]"
+                [style]="{'border-radius': animatedBorderRadius}" [bgImg]="bannerImg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-layout>

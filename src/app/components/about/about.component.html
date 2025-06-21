@@ -1,0 +1,36 @@
+<app-layout (onSchool)="onSchool($event)">
+  <div class="bg-white dark:bg-black-thick dark:text-white pb-20" *ngIf="school">
+    <div class="layout-container">
+      <div class="mx-auto pt-8 lg:pt-10 max-w-4xl">
+        <h1 class="text-4xl font-semibold tracking-tight text-gray-700 dark:text-white sm:text-4xl">
+          About us
+        </h1>
+
+        <div class="mt-5 content">
+          <img [src]="aboutImg" class="w-40 md:w-52 lg:w-80 p-1 bg-white rounded-md float-right m-3" alt="">
+          <div class="default-css" [innerHTML]="school.about"></div>
+        </div>
+
+        <div class="mb-10 flex justify-end">
+          <div class="bg-muted-light px-2 py-1 text-sm rounded-md dark:bg-black dark:text-white">
+            {{school.motto}}
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-semibold tracking-tight text-gray-700 dark:text-white sm:text-4xl">
+          Vision
+        </h2>
+        <div class="mt-5 content">
+          {{school.vision}}
+        </div>
+
+        <h2 class="text-2xl mt-10 font-semibold tracking-tight text-gray-700 dark:text-white sm:text-4xl">
+          Mission statement
+        </h2>
+        <div class="mt-5 content">
+          {{school.mission}}
+        </div>
+      </div>
+    </div>
+  </div>
+</app-layout>

@@ -1,13 +1,74 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
-  <title>BasicTemplate</title>
+  <title>School Website</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="images/icon.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="website">
+
+  <!-- splash screen styles needed before page loads -->
+  <style>
+    @keyframes bouncelogo {
+      from {
+        -webkit-transform: translate3d(0, -25px, 0);
+        transform: translate3d(0, -25px, 0);
+      }
+
+      to {
+        -webkit-transform: translate3d(0, 25px, 0);
+        transform: translate3d(0, 25px, 0);
+      }
+    }
+
+    #splashScreen,
+    .splash_screen {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #splashScreen {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hidden-screen {
+      overflow: hidden !important;
+      height: 0 !important;
+      padding: 0 !important;
+      width: 0 !important;
+    }
+
+    /* .splash_logo {
+      animation: bouncelogo 0.5s;
+      animation-direction: alternate;
+      animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+      -webkit-animation-iteration-count: infinite;
+    } */
+  </style>
 </head>
+
 <body>
-  <app-root></app-root>
+  <div class="hidden-screen" id="appScreen">
+    <app-root></app-root>
+  </div>
+
+  <div id="splashScreen" class="" style="background-color: white;">
+    <img src="https://media.tenor.com/-n8JvVIqBXkAAAAM/dddd.gif" width="280px" alt="Brand logo" class="splash_logo">
+  </div>
+
+  <link href="https://cdn.materialdesignicons.com/7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
 </body>
+
 </html>

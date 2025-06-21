@@ -1,0 +1,203 @@
+<app-layout (onSchool)="onSchool($event)">
+  <div class="bg-white dark:bg-black-thick dark:text-white" *ngIf="school">
+    <main class="overflow-hidden">
+      <!-- Header -->
+      <div class="bg-stone-50 dark:bg-black-thick dark:text-white">
+        <div class="py-10 lg:py-20">
+          <div class="relative z-10 mx-auto max-w-7xl pl-4 pr-8 sm:px-6 lg:px-8">
+            <h1 class="text-4xl font-bold tracking-tight text-stone-700 dark:text-white sm:text-5xl lg:text-6xl">Contact
+              us</h1>
+            <p class="mt-6 max-w-3xl text-xl text-stone-500 dark:text-muted-light">
+              Have any questions about our curriculum, tuition fees or need other help, message us about it and we'll
+              get back to you.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact section -->
+      <section class="relative bg-white dark:bg-black-thick mb-16 pb-16" aria-labelledby="contact-heading">
+        <div class="absolute h-1/2 w-full bg-stone-50 dark:bg-black-thick" aria-hidden="true"></div>
+        <!-- Decorative dot pattern -->
+        <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+          <svg
+            class="absolute right-0 top-0 z-0 -translate-y-16 translate-x-1/2 transform sm:translate-x-1/4 md:-translate-y-24 lg:-translate-y-72"
+            width="404" height="384" fill="none" viewBox="0 0 404 384" aria-hidden="true">
+            <defs>
+              <pattern id="64e643ad-2176-4f86-b3d7-f2c5da3b6a6d" x="0" y="0" width="20" height="20"
+                patternUnits="userSpaceOnUse">
+                <rect x="0" y="0" width="4" height="4" class="text-stone-200" fill="currentColor" />
+              </pattern>
+            </defs>
+            <rect width="404" height="384" fill="url(#64e643ad-2176-4f86-b3d7-f2c5da3b6a6d)" />
+          </svg>
+        </div>
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <div class="relative bg-white dark:bg-black shadow-xl">
+            <h2 id="contact-heading" class="sr-only">Our contacts</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3">
+              <!-- Contact information -->
+              <div
+                class="relative overflow-hidden bg-gradient-to-b from-primary to-secondary-light px-6 py-10 sm:px-10 xl:p-12">
+                <!-- Decorative angle backgrounds -->
+                <div class="pointer-events-none absolute inset-0 sm:hidden" aria-hidden="true">
+                  <svg class="absolute inset-0 size-full" width="343" height="388" viewBox="0 0 343 388" fill="none"
+                    preserveAspectRatio="xMidYMid slice">
+                    <path d="M-99 461.107L608.107-246l707.103 707.107-707.103 707.103L-99 461.107z" fill="url(#linear1)"
+                      fill-opacity=".1" />
+                    <defs>
+                      <linearGradient id="linear1" x1="254.553" y1="107.554" x2="961.66" y2="814.66"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#fff" />
+                        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="pointer-events-none absolute bottom-0 right-0 top-0 hidden w-1/2 sm:block lg:hidden"
+                  aria-hidden="true">
+                  <svg class="absolute inset-0 size-full" width="359" height="339" viewBox="0 0 359 339" fill="none"
+                    preserveAspectRatio="xMidYMid slice">
+                    <path d="M-161 382.107L546.107-325l707.103 707.107-707.103 707.103L-161 382.107z"
+                      fill="url(#linear2)" fill-opacity=".1" />
+                    <defs>
+                      <linearGradient id="linear2" x1="192.553" y1="28.553" x2="899.66" y2="735.66"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#fff" />
+                        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <div class="pointer-events-none absolute bottom-0 right-0 top-0 hidden w-1/2 lg:block"
+                  aria-hidden="true">
+                  <svg class="absolute inset-0 size-full" width="160" height="678" viewBox="0 0 160 678" fill="none"
+                    preserveAspectRatio="xMidYMid slice">
+                    <path d="M-161 679.107L546.107-28l707.103 707.107-707.103 707.103L-161 679.107z"
+                      fill="url(#linear3)" fill-opacity=".1" />
+                    <defs>
+                      <linearGradient id="linear3" x1="192.553" y1="325.553" x2="899.66" y2="1032.66"
+                        gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#fff" />
+                        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <h3 class="text-lg font-medium text-white">Contact information</h3>
+                <p class="mt-6 max-w-3xl text-base text-teal-50">
+                  Contact us via phone call or email us with any of these contacts below:
+                </p>
+                <dl class="mt-8 space-y-6">
+                  <dt><span class="sr-only">Phone number</span></dt>
+                  <dd class="flex items-center text-base text-teal-50">
+                    <i class="mdi mdi-phone-outline text-3xl"></i>
+                    <a target="_blank" [href]="'tel:'+school.phoneContact" class="ml-3">{{school.phoneContact}}</a>
+                  </dd>
+
+                  <dt><span class="sr-only">Email</span></dt>
+                  <dd class="flex items-center text-base text-teal-50">
+                    <i class="mdi mdi-email-outline text-3xl"></i>
+                    <a target="_blank" [href]="'mailto:'+school.emailContact" class="ml-3">{{school.emailContact}}</a>
+                  </dd>
+
+                  <dt><span class="sr-only">Email</span></dt>
+                  <dd class="flex items-center text-base text-teal-50">
+                    <i class="mdi mdi-map-marker text-3xl"></i>
+                    <span class="ml-3">{{school.address}}</span>
+                  </dd>
+                </dl>
+                <div class="flex space-x-6 mt-14">
+                  <a *ngIf="school.facebook" [href]="school.facebook" class="text-white">
+                    <span class="sr-only">Facebook</span>
+                    <i class="mdi mdi-facebook text-[30px]"></i>
+                  </a>
+                  <a *ngIf="school.instagram" [href]="school.instagram" class="text-white">
+                    <span class="sr-only">Instagram</span>
+                    <i class="mdi mdi-instagram text-[30px]"></i>
+                  </a>
+                  <a *ngIf="school.twitter" [href]="school.twitter" class="text-white">
+                    <span class="sr-only">X</span>
+                    <i class="mdi mdi-twitter text-[30px]"></i>
+                  </a>
+                  <a *ngIf="school.whatsapp" [href]="school.whatsapp" class="text-white">
+                    <span class="sr-only">WhatsApp</span>
+                    <i class="mdi mdi-whatsapp text-[30px]"></i>
+                  </a>
+                  <a *ngIf="school.youtube" [href]="school.youtube" class="text-white">
+                    <span class="sr-only">Youtube</span>
+                    <i class="mdi mdi-youtube text-[30px]"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Contact form -->
+              <div class="px-6 py-10 sm:px-10 lg:col-span-2 xl:p-12 dark:text-white">
+                <h3 class="text-lg font-medium text-stone-700 dark:text-muted-light">Send us
+                  a message</h3>
+                <form (submit)="submit()" [formGroup]="form"
+                  class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                  <div>
+                    <label for="yourName" class="block text-sm font-medium text-stone-700 dark:text-muted-light">Your
+                      name</label>
+                    <div class="mt-1">
+                      <input type="text" formControlName="name" id="yourName" autocomplete="name"
+                        class="block w-full rounded-md border border-stone-300 px-4 py-3 text-stone-700 dark:text-muted-light shadow-sm focus:border-primary outline-none focus:ring-primary">
+                    </div>
+                  </div>
+                  <div>
+                    <label for="email"
+                      class="block text-sm font-medium text-stone-700 dark:text-muted-light">Email</label>
+                    <div class="mt-1">
+                      <input id="email" formControlName="email" type="email" autocomplete="email"
+                        class="block w-full rounded-md border border-stone-300 px-4 py-3 text-stone-700 dark:text-muted-light shadow-sm focus:border-primary outline-none focus:ring-primary">
+                    </div>
+                  </div>
+                  <div>
+                    <label for="subject"
+                      class="block text-sm font-medium text-stone-700 dark:text-muted-light">Subject</label>
+                    <div class="mt-1">
+                      <input type="text" formControlName="subject" id="subject"
+                        class="block w-full rounded-md border border-stone-300 px-4 py-3 text-stone-700 dark:text-muted-light shadow-sm focus:border-primary outline-none focus:ring-primary">
+                    </div>
+                  </div>
+                  <div>
+                    <div class="flex justify-between">
+                      <label for="phone"
+                        class="block text-sm font-medium text-stone-700 dark:text-muted-light">Phone</label>
+                      <span id="phone-optional" class="text-sm text-stone-500 dark:text-muted">Optional</span>
+                    </div>
+                    <div class="mt-1">
+                      <input type="text" formControlName="phone" id="phone" autocomplete="tel"
+                        class="block w-full rounded-md border border-stone-300 px-4 py-3 text-stone-700 dark:text-muted-light shadow-sm focus:border-primary outline-none focus:ring-primary"
+                        aria-describedby="phone-optional">
+                    </div>
+                  </div>
+                  <div class="sm:col-span-2">
+                    <div class="flex justify-between">
+                      <label for="message"
+                        class="block text-sm font-medium text-stone-700 dark:text-muted-light">Message</label>
+                      <span id="message-max" class="text-sm text-stone-500 dark:text-muted">Max. 500 characters</span>
+                    </div>
+                    <div class="mt-1">
+                      <textarea id="message" formControlName="content" rows="4"
+                        class="block w-full rounded-md border border-stone-300 px-4 py-3 text-stone-700 dark:text-muted-light shadow-sm focus:border-primary outline-none focus:ring-primary"
+                        aria-describedby="message-max"></textarea>
+                    </div>
+                  </div>
+                  <div class="sm:col-span-2 sm:flex sm:justify-end">
+                    <button type="submit" [disabled]="form.pristine || form.invalid || loading"
+                      class="mt-2 inline-flex disabled:opacity-30 w-full items-center justify-center rounded-md border border-transparent bg-primary-light px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-thick focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 sm:w-auto">
+                      Submit <i class="mdi mdi-arrow-right"></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</app-layout>

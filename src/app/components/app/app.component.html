@@ -1,0 +1,18 @@
+@if (pageStatus === 'ready') {
+<div [@enterTrigger]="'fadeIn'">
+  <router-outlet></router-outlet>
+</div>
+} @else if (pageStatus === '404') {
+<app-not-found></app-not-found>
+} @else {
+<div class="py-24">
+  <app-progress></app-progress>
+</div>
+}
+
+@if (school?.previewStatus) {
+<div
+  class="fixed top-[10px] z-20 w-[176px] text-center -right-[65px] bg-orange text-white text-sm px-3 py-1 rotate-45 border-y-orange">
+  {{school?.previewStatus}}
+</div>
+}

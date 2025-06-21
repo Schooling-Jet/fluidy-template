@@ -1,0 +1,115 @@
+<div class="text-white bg-primary-thick w-full">
+  <div class="layout-container">
+    <div class="py-3 flex space-x-2 justify-between items-center">
+      <div class="flex space-x-3 text-sm">
+        <div>Call: <a class="underline md:no-underline md:hover:underline line-clamp-1"
+            [href]="'tel:'+school.phoneContact">
+            {{school.phoneContact}}</a></div>
+      </div>
+
+      <div class="md:flex flex-row space-x-2 hidden">
+        <a [href]="school.facebook" *ngIf="school.facebook" target="_blank" title="Facebook">
+          <i class="mdi mdi-facebook text-[20px]"></i>
+        </a>
+
+        <a [href]="school.whatsapp" *ngIf="school.whatsapp" target="_blank" title="WhatsApp">
+          <i class="mdi mdi-whatsapp text-[20px]"></i>
+        </a>
+
+        <a [href]="school.youtube" *ngIf="school.youtube" target="_blank" title="Youtube">
+          <i class="mdi mdi-youtube text-[20px]"></i>
+        </a>
+
+        <a [href]="school.twitter" *ngIf="school.twitter" target="_blank" title="X">
+          <i class="mdi mdi-twitter text-[20px]"></i>
+        </a>
+
+        <a [href]="school.linkedIn" *ngIf="school.linkedIn" target="_blank" title="LinkedIn">
+          <i class="mdi mdi-linkedin text-[20px]"></i>
+        </a>
+
+        <a [href]="school.instagram" *ngIf="school.instagram" target="_blank" title="Instagram">
+          <i class="mdi mdi-instagram text-[20px]"></i>
+        </a>
+      </div>
+
+      <div>
+        <a class="px-4 py-1.5 text-sm rounded-md bg-white text-primary"
+          [href]="env.parentOrigin+'/auth/login?s='+school.subdomain">
+          <i class="mdi mdi-login"></i> Login to portal
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="w-full bg-white dark:bg-black dark:text-white h-[70px] shadow-md"
+  [ngClass]="[fixHeader ? 'fixed top-0 z-20' : 'relative z-20', mobileNav ? 'border-b md:border-none' : '']">
+  <div class="layout-container h-full">
+    <div class="flex items-center justify-between h-full">
+      <a routerLink="/" class="py-1">
+        <img [src]="school.horizLogo" class="w-48" alt=""></a>
+
+      <div class="flex h-full space-x-2">
+        <div class="hidden md:flex space-x-2 h-full items-end">
+          <ng-container *ngTemplateOutlet="menuItems"></ng-container>
+        </div>
+
+        <div class="h-full flex items-center md:items-end">
+          <button (click)="switchColorTheme()"
+            class="size-8 bg-black text-white dark:bg-muted-vlight dark:text-black border rounded-full md:mb-1.5">
+            <i [class]="'mdi text-[20px] mdi-weather-'+(isDarkTheme ? 'sunny' : 'night')"></i>
+          </button>
+        </div>
+
+        <button class="mr-2 md:hidden" (click)="mobileNav = !mobileNav">
+          <i [class]="'mdi text-[30px] mdi-'+(mobileNav ? 'close' : 'menu')"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="md:hidden flex flex-col space-y-2 w-full h-[90vh] pt-6 absolute mt-[1px] bg-white dark:bg-black p-3 shadow-md"
+    @enterTrigger *ngIf="mobileNav">
+    <ng-container *ngTemplateOutlet="menuItems"></ng-container>
+  </div>
+</div>
+
+<ng-template #menuItems>
+  <a routerLink="/"
+    class="px-5 py-2 font-semibold text-muted-thick dark:text-muted-vlight rounded-md md:rounded-none bg-muted-vlight dark:bg-gray-700 md:bg-transparent md:border-b-4 border-transparent md:hover:border-primary">
+    <i class="mdi mdi-home"></i> &nbsp;Home
+  </a>
+
+  <div class="relative" id="dropdownCont">
+    <button [dropdownTarget]="'#aboutMenuOptions'" dropdownClass="closed" [mouseAction]="true" parent="#dropdownCont"
+      class="px-5 py-2 font-semibold flex space-x-2 text-muted-thick dark:text-muted-vlight rounded-md md:rounded-none w-full text-left bg-muted-vlight dark:bg-gray-700 md:bg-transparent md:border-b-4 border-transparent">
+      <i class="mdi mdi-newspaper-variant-outline"></i>
+      <span class="grow">About</span>
+      <i class="mdi mdi-chevron-down"></i>
+    </button>
+
+    <div class="absolute z-20 bg-white dark:bg-black md:shadow-lg dropdown-panel closed" id="aboutMenuOptions">
+      <div class="md:border-t-4 border-primary divide-y text-muted-thick dark:text-muted-vlight font-semibold">
+        <a routerLink="/about" class="px-5 py-3 block hover:bg-muted-vlight dark:bg-gray-700 dark:hover:bg-muted-thick">
+          About us
+        </a>
+
+        <a routerLink="/contact"
+          class="px-5 py-3 block hover:bg-muted-vlight dark:bg-gray-700 dark:hover:bg-muted-thick">
+          Contact us
+        </a>
+
+        <a routerLink="/faq" class="px-5 py-3 block hover:bg-muted-vlight dark:bg-gray-700 dark:hover:bg-muted-thick">
+          FAQ
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <a routerLink="/gallery"
+    class="px-5 py-2 font-semibold text-muted-thick dark:text-muted-vlight rounded-md md:rounded-none bg-muted-vlight dark:bg-gray-700 md:bg-transparent md:border-b-4 border-transparent md:hover:border-primary">
+    <i class="mdi mdi-view-gallery-outline"></i> &nbsp;Gallery
+  </a>
+</ng-template>

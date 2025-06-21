@@ -1,0 +1,9 @@
+<div *ngIf="school" class="" @enterTrigger>
+  <app-layout-header [school]="school"></app-layout-header>
+
+  <div class="min-h-[600px] dark:bg-black-thick">
+    <ng-content></ng-content>
+  </div>
+
+  <app-layout-footer [school]="school"></app-layout-footer>
+</div>

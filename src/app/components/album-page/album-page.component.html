@@ -1,0 +1,48 @@
+<div class="fixed w-full h-full top-0 z-30 right-0 bottom-0 left-0 bg-black/85" @enterTrigger>
+  <div class="flex flex-col space-y-5 w-full h-full">
+    <div class="grow flex justify-center items-center">
+      @if (album) {
+      <div class="h-screen w-screen flex justify-center items-center px-12 py-14">
+        <div class="flex justify-center sm:px-12 p-8 h-full">
+          @for (att of album.Photos; track $index) {
+          <div class="overflow-hidden transition-all duration-500 h-full flex justify-center items-center"
+            [ngClass]="[$index === currentIndex ? 'w-full opacity-100' : 'w-0 opacity-0']">
+            <img @enterTrigger [src]="att.uri"
+              class="overflow-hidden object-scale-down max-h-full drop-shadow-md rounded-md m-auto" alt="">
+          </div>
+          }
+        </div>
+      </div>
+      } @else {
+      <div class="py-12">
+        <app-progress size="120px"></app-progress>
+      </div>
+      }
+    </div>
+  </div>
+
+  @if (album) {
+  <div (click)="swipeImg(-1)"
+    class="h-full flex justify-center items-center w-12 fixed left-0 top-0 text-white cursor-pointer">
+    <i class="mdi mdi-chevron-left text-[40px]"></i>
+  </div>
+  <div (click)="swipeImg(1)"
+    class="h-full flex justify-center items-center w-12 fixed right-0 top-0 text-white cursor-pointer">
+    <i class="mdi mdi-chevron-right text-[40px]"></i>
+  </div>
+
+  <div class="fixed flex justify-end right-2 md:right-4 top-1">
+    <button class="text-[40px] text-white" (click)="onDone.emit()">
+      <i class="mdi mdi-close"></i>
+    </button>
+  </div>
+
+  <div class="py-2 w-full bg-black fixed bottom-0 left-0 right-0 flex justify-center items-center space-x-1">
+    @for (att of album.Photos; track $index) {
+    <img [src]="att.thumbnail" class="border-2 cursor-pointer transition-all duration-300 bg-white"
+      (click)="swipeImg(undefined, $index)"
+      [ngClass]="[currentIndex === $index ? 'border-primary-light size-8' : 'border-transparent size-6']" alt="">
+    }
+  </div>
+  }
+</div>

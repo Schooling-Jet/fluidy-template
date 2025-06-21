@@ -1,0 +1,126 @@
+<div class="py-10 bg-primary/20 text-black dark:bg-gray-500 dark:text-white">
+  <div class="layout-container flex justify-between items-center">
+    <div class="w-full max-w-[500px]">
+      <div class="text-[25px] font-bold">Subscribe to our newsletter</div>
+      <div class="text-sm mb-3">Be the first to hear about our new features, custom updates and announcements.</div>
+
+      <div class="flex">
+        <input nameDir textAction="lower" type="email" [(ngModel)]="email" placeholder="forexample@gmail.com"
+          class="px-4 py-2 rounded-l-2xl bg-white/40 border border-muted w-full outline-none text-black placeholder:text-black">
+        <button (click)="subscribe()" class="px-4 bg-secondary text-white rounded-r-2xl disabled:opacity-30"
+          [disabled]="subscribing">Subscribe</button>
+      </div>
+    </div>
+
+    <div class="hidden md:block">
+      <a routerLink="/">
+        <img [src]="school.horizLogo" class="w-[160px]">
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="bg-cover bg-center bg-no-repeat bg-primary-thick dark:bg-black" bgImg="/assets/images/dashboard.jpg"
+  aria-labelledby="footer-heading">
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="mx-auto max-w-7xl px-6 py-12 lg:px-8 lg:py-16">
+    <div class="xl:grid xl:grid-cols-3 xl:gap-8">
+      <div class="space-y-8 xl:col-span-1">
+        <p class="text-stone-300 text-[20px] line-clamp-1">{{school.name}}</p>
+        <p class="text-base text-stone-400">
+          {{school.mission}}
+        </p>
+        <div class="flex space-x-6">
+          <a *ngIf="school.facebook" [href]="school.facebook" class="text-stone-400 hover:text-white">
+            <span class="sr-only">Facebook</span>
+            <i class="mdi mdi-facebook text-[30px]"></i>
+          </a>
+          <a *ngIf="school.instagram" [href]="school.instagram" class="text-stone-400 hover:text-white">
+            <span class="sr-only">Instagram</span>
+            <i class="mdi mdi-instagram text-[30px]"></i>
+          </a>
+          <a *ngIf="school.twitter" [href]="school.twitter" class="text-stone-400 hover:text-white">
+            <span class="sr-only">X</span>
+            <i class="mdi mdi-twitter text-[30px]"></i>
+          </a>
+          <a *ngIf="school.whatsapp" [href]="school.whatsapp" class="text-stone-400 hover:text-white">
+            <span class="sr-only">WhatsApp</span>
+            <i class="mdi mdi-whatsapp text-[30px]"></i>
+          </a>
+          <a *ngIf="school.youtube" [href]="school.youtube" class="text-stone-400 hover:text-white">
+            <span class="sr-only">Youtube</span>
+            <i class="mdi mdi-youtube text-[30px]"></i>
+          </a>
+        </div>
+      </div>
+      <div class="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-base font-medium text-stone-200">Solutions</h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a [href]="env.parentOrigin+'/auth/login?s='+school.subdomain"
+                  class="text-base text-stone-400 hover:text-white">School portal</a>
+              </li>
+              <li>
+                <a routerLink="/" class="text-base text-stone-400 hover:text-white">Vacancies</a>
+              </li>
+              <li>
+                <a routerLink="/" class="text-base text-stone-400 hover:text-white">Blog</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-base font-medium text-stone-200">Support</h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a routerLink="/contact" class="text-base text-stone-400 hover:text-white">Contact</a>
+              </li>
+              <li>
+                <a routerLink="/faq" class="text-base text-stone-400 hover:text-white">FAQ</a>
+              </li>
+              <li>
+                <a routerLink="/about" class="text-base text-stone-400 hover:text-white">About us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <h3 class="text-base font-medium text-stone-200">Institution</h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a routerLink="/about" class="text-base text-stone-400 hover:text-white">About</a>
+              </li>
+              <li>
+                <a routerLink="/" class="text-base text-stone-400 hover:text-white">Management</a>
+              </li>
+              <li>
+                <a routerLink="/" class="text-base text-stone-400 hover:text-white">Teachers</a>
+              </li>
+              <li>
+                <a routerLink="/gallery" class="text-base text-stone-400 hover:text-white">Events and gallery</a>
+              </li>
+            </ul>
+          </div>
+          <div class="mt-12 md:mt-0">
+            <h3 class="text-base font-medium text-stone-200">Legal</h3>
+            <ul role="list" class="mt-4 space-y-4">
+              <li>
+                <a routerLink="/" class="text-base text-stone-400 hover:text-white">Privacy</a>
+              </li>
+              <li>
+                <a routerLink="/" class="text-base text-stone-400 hover:text-white">Terms of service</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-12 border-t border-stone-700 pt-8">
+      <p class="text-base text-stone-400 xl:text-center">
+        &reg; All Rights Reserved &middot; {{school.name}} &copy; {{year}}
+      </p>
+    </div>
+  </div>
+</footer>

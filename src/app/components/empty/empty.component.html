@@ -1,0 +1,14 @@
+<div class="my-16 flex flex-col justify-center items-center mx-auto max-w-[500px] text-center">
+  <div class="">
+    <i [class]="'text-[50px] mdi mdi-'+icon"></i>
+  </div>
+  <div class="mb-3 mt-1">
+    <div *ngIf="message" [innerHtml]="message"></div>
+    <div *ngIf="!message">This list is empty!</div>
+  </div>
+
+  <button *ngIf="actionBtn" [class]="classlist || 'bg-primary text-white rounded-md px-5 py-2 text-sm'" type="button"
+    (click)="onAction.emit()">
+    {{actionBtn}}
+  </button>
+</div>
