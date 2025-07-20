@@ -12,7 +12,7 @@
           <i class="mdi mdi-facebook text-[20px]"></i>
         </a>
 
-        <a [href]="school.whatsapp" *ngIf="school.whatsapp" target="_blank" title="WhatsApp">
+        <a [href]="'https://wa.me/'+school.whatsapp" *ngIf="school.whatsapp" target="_blank" title="WhatsApp">
           <i class="mdi mdi-whatsapp text-[20px]"></i>
         </a>
 
@@ -48,7 +48,7 @@
   <div class="layout-container h-full">
     <div class="flex items-center justify-between h-full">
       <a routerLink="/" class="py-1">
-        <img [src]="school.horizLogo" class="w-48" alt=""></a>
+        <img [src]="school.horizLogo" class="my-auto h-[65px]" alt=""></a>
 
       <div class="flex h-full space-x-2">
         <div class="hidden md:flex space-x-2 h-full items-end">
